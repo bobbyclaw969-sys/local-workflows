@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LocalFlows | 10 Business Automations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--p:#10b981;--p2:#34d399;--bg:#0f172a;--b2:#1e293b;--b3:#334155;--bd:#475569;--t:#f8fafc;--t2:#94a3b8;--s:#10b981;--d:#ef4444;--i:#3b82f6;--o:#f59e0b}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);min-height:100vh;padding:2rem}
+        .container{max-width:1200px;margin:0 auto}
+        h1{font-size:2.5rem;margin-bottom:0.5rem;text-align:center}
+        h1 span{color:var(--p)}
+        .subtitle{text-align:center;color:var(--t2);margin-bottom:2rem;font-size:1.1rem}
+        .stats{display:flex;justify-content:center;gap:3rem;margin-bottom:3rem;flex-wrap:wrap}
+        .stat{text-align:center}
+        .stat .v{font-size:2.5rem;font-weight:700;color:var(--p)}
+        .stat .l{font-size:0.9rem;color:var(--t2)}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;margin-bottom:3rem}
+        .card{background:var(--b2);border:1px solid var(--bd);border-radius:12px;padding:1.5rem;transition:all 0.2s}
+        .card:hover{transform:translateY(-4px);border-color:var(--p);box-shadow:0 10px 40px rgba(16,185,129,0.1)}
+        .card .icon{font-size:2rem;margin-bottom:1rem}
+        .card h3{font-size:1.2rem;margin-bottom:0.5rem}
+        .card .price{font-size:1.5rem;font-weight:700;color:var(--p);margin-bottom:0.5rem}
+        .card .time{font-size:0.85rem;color:var(--t2);margin-bottom:1rem}
+        .card .desc{font-size:0.9rem;color:var(--t2);margin-bottom:1rem;line-height:1.5}
+        .card .tags{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem}
+        .card .tag{font-size:0.75rem;padding:0.3rem 0.6rem;background:var(--b3);border-radius:100px}
+        .card .btn{width:100%;padding:0.8rem;background:var(--p);color:#000;border:0;border-radius:8px;font-weight:600;cursor:pointer;transition:all 0.2s}
+        .card .btn:hover{background:var(--p2)}
+        .card.built{border-color:var(--p)}
+        .card .status{font-size:0.75rem;color:var(--p);margin-bottom:0.5rem}
+        .cta{text-align:center;padding:3rem;background:var(--b2);border-radius:16px}
+        .cta h2{font-size:1.8rem;margin-bottom:1rem}
+        .cta p{color:var(--t2);margin-bottom:2rem;font-size:1.1rem}
+        .cta .price{font-size:3rem;font-weight:700;color:var(--p)}
+        .cta .note{font-size:0.9rem;color:var(--t2);margin-top:1rem}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Local<span>Flows</span></h1>
+    <p class="subtitle">10 Business Automations That Print Money</p>
+    
+    <div class="stats">
+        <div class="stat"><div class="v">$17,500</div><div class="l">Avg Package</div></div>
+        <div class="stat"><div class="v">5.4min</div><div class="l">Build Time</div></div>
+        <div class="stat"><div class="v">70%</div><div class="l">Close Rate</div></div>
+    </div>
+
+    <div class="grid">
+        <div class="card built">
+            <div class="status">✅ BUILT</div>
+            <div class="icon">📱</div>
+            <h3>Missed Call Text-Back</h3>
+            <div class="price">$800-1,500</div>
+            <div class="time">⏱️ 3 min build</div>
+            <p class="desc">When a customer calls and misses, auto-reply with personalized text within 60 seconds.</p>
+            <div class="tags"><span class="tag">Twilio</span><span class="tag">SMS</span></div>
+            <button class="btn">Configure</button>
+        </div>
+
+        <div class="card built">
+            <div class="status">✅ BUILT</div>
+            <div class="icon">⭐</div>
+            <h3>Review Request Automation</h3>
+            <div class="price">$500-1,200</div>
+            <div class="time">⏱️ 4 min build</div>
+            <p class="desc">Triple Google reviews in first month. Auto-request after positive interaction.</p>
+            <div class="tags"><span class="tag">Google</span><span class="tag">Reviews</span></div>
+            <button class="btn">Configure</button>
+        </div>
+
+        <div class="card built">
+            <div class="status">✅ BUILT</div>
+            <div class="icon">📅</div>
+            <h3>No-Show Recovery</h3>
+            <div class="price">$1,200-2,500</div>
+            <div class="time">⏱️ 5 min build</div>
+            <p class="desc">Recovers 30-40% of lost revenue. Auto-message + rebook offer when client misses.</p>
+            <div class="tags"><span class="tag">Calendar</span><span class="tag">SMS</span></div>
+            <button class="btn">Configure</button>
+        </div>
+
+        <div class="card">
+            <div class="icon">🤖</div>
+            <h3>AI Receptionist</h3>
+            <div class="price">$2,000-4,000</div>
+            <div class="time">⏱️ 8 min build</div>
+            <p class="desc">24/7 coverage. Answers common questions, schedules appointments, routes calls.</p>
+            <div class="tags"><span class="tag">Voice</span><span class="tag">AI</span></div>
+            <button class="btn">Configure</button>
+        </div>
+
+        <div class="card built">
+            <div class="status">✅ BUILT</div>
+            <div class="icon">💰</div>
+            <h3>Instant Quote Generator</h3>
+            <div class="price">$1,500-3,000</div>
+            <div class="time">⏱️ 7 min build</div>
+            <p class="desc">Response time drops from 2 days to 2 minutes. Auto-generate quotes from forms.</p>
+            <div class="tags"><span class="tag">Forms</span><span class="tag">PDF</span></div>
+            <button class="btn">Configure</button>
+        </div>
+
+        <div class="card built">
+            <div class="status">✅ BUILT</div>
+            <div class="icon">🎯</div>
+            <h3>Lead Scoring + Routing</h3>
+            <div class="price">$1,500-3,000</div>
+            <div class="time">⏱️ 6 min build</div>
+            <p class="desc">Hot leads hit your phone. Cold leads get nurtured automatically.</p>
+            <div class="tags"><span class="tag">Scoring</span><span class="tag">Routing</span></div>
+            <button class="btn">Configure</button>
+        </div>
+
+        <div class="card">
+            <div class="icon">📋</div>
+            <h3>Client Onboarding</h3>
+            <div class="price">$1,800-3,500</div>
+            <div class="time">⏱️ 9 min build</div>
+            <p class="desc">Forms, document collection, payments - one workflow handles all.</p>
+            <div class="tags"><span class="tag">Forms</span><span class="tag">Stripe</span></div>
+            <button class="btn">Configure</button>
+        </div>
+
+        <div class="card">
+            <div class="icon">💳</div>
+            <h3>Invoice Follow-Up</h3>
+            <div class="price">$1,000-2,000</div>
+            <div class="time">⏱️ 4 min build</div>
+            <p class="desc">Late payments drop 60% without a single awkward phone call.</p>
+            <div class="tags"><span class="tag">Stripe</span><span class="tag">SMS</span></div>
+            <button class="btn">Configure</button>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏆</div>
+            <h3>Social Proof Collector</h3>
+            <div class="price">$600-1,200</div>
+            <div class="time">⏱️ 3 min build</div>
+            <p class="desc">Auto-requests testimonials and publishes to Google + socials.</p>
+            <div class="tags"><span class="tag">Reviews</span><span class="tag">Social</span></div>
+            <button class="btn">Configure</button>
+        </div>
+
+        <div class="card built">
+            <div class="status">✅ BUILT</div>
+            <div class="icon">📊</div>
+            <h3>Weekly Owner Dashboard</h3>
+            <div class="price">$1,200-2,500</div>
+            <div class="time">⏱️ 5 min build</div>
+            <p class="desc">Revenue, reviews, leads, appointments - one email every Monday morning.</p>
+            <div class="tags"><span class="tag">Email</span><span class="tag">Analytics</span></div>
+            <button class="btn">Configure</button>
+        </div>
+    </div>
+
+    <div class="cta">
+        <h2>Ready to Start Building?</h2>
+        <p>These workflows are self-healing via MCP. No debugging. No 11pm maintenance calls.</p>
+        <div class="price">$1,750</div>
+        <p>Average automation price</p>
+        <button class="btn" style="padding:1rem 3rem;font-size:1.1rem;margin-top:1rem">Start Building →</button>
+        <p class="note">5.4 min average build time • 70% close rate when demoing live</p>
+    </div>
+</div>
+</body>
+</html>
