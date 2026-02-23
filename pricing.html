@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LocalFlows Pricing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--p:#10b981;--bg:#0f172a;--b2:#1e293b;--b3:#334155;--bd:#475569;--t:#f8fafc;--t2:#94a3b8}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);min-height:100vh;padding:2rem}
+        .container{max-width:900px;margin:0 auto}
+        h1{text-align:center;font-size:2.5rem;margin-bottom:0.5rem}
+        h1 span{color:var(--p)}
+        .subtitle{text-align:center;color:var(--t2);margin-bottom:3rem}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-bottom:3rem}
+        .card{background:var(--b2);border:1px solid var(--bd);border-radius:12px;padding:2rem;text-align:center}
+        .card.featured{border-color:var(--p);transform:scale(1.05)}
+        .card h3{font-size:1.3rem;margin-bottom:0.5rem}
+        .card .price{font-size:2.5rem;font-weight:700;color:var(--p);margin:1rem 0}
+        .card .price span{font-size:1rem;color:var(--t2)}
+        .card ul{text-align:left;margin:1rem 0;padding-left:1.5rem}
+        .card li{color:var(--t2);margin-bottom:0.5rem;font-size:0.9rem}
+        .card .btn{display:block;width:100%;padding:0.8rem;background:var(--p);color:#000;border:0;border-radius:8px;font-weight:600;cursor:pointer;margin-top:1rem}
+        .card .btn:hover{background:#34d399}
+        .guarantee{text-align:center;color:var(--t2);font-size:0.9rem;margin-top:2rem}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Local<span>Flows</span> Pricing</h1>
+    <p class="subtitle">Build time: 5.4 min avg • Close rate: 70%</p>
+    
+    <div class="grid">
+        <div class="card">
+            <h3>Starter</h3>
+            <div class="price">$997<span>/mo</span></div>
+            <ul>
+                <li>2 Workflows</li>
+                <li>Basic setup</li>
+                <li>Email support</li>
+                <li>30-day guarantee</li>
+            </ul>
+            <button class="btn">Get Started</button>
+        </div>
+        
+        <div class="card featured">
+            <h3>Growth</h3>
+            <div class="price">$1,997<span>/mo</span></div>
+            <ul>
+                <li>5 Workflows</li>
+                <li>Priority setup</li>
+                <li>Live demo support</li>
+                <li>Custom integrations</li>
+                <li>90-day guarantee</li>
+            </ul>
+            <button class="btn">Get Started</button>
+        </div>
+        
+        <div class="card">
+            <h3>Agency</h3>
+            <div class="price">$3,997<span>/mo</span></div>
+            <ul>
+                <li>Unlimited workflows</li>
+                <li>White-label</li>
+                <li>Full API access</li>
+                <li>Dedicated support</li>
+                <li>Lifetime updates</li>
+            </ul>
+            <button class="btn">Get Started</button>
+        </div>
+    </div>
+    
+    <p class="guarantee">🔒 100% money-back guarantee • No long-term contracts • Cancel anytime</p>
+</div>
+</body>
+</html>
