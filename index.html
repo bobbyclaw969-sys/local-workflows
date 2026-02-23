@@ -3,168 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>LocalFlows | 10 Business Automations</title>
+    <title>LocalFlows | Business Automations</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root{--p:#10b981;--p2:#34d399;--bg:#0f172a;--b2:#1e293b;--b3:#334155;--bd:#475569;--t:#f8fafc;--t2:#94a3b8;--s:#10b981;--d:#ef4444;--i:#3b82f6;--o:#f59e0b}
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);min-height:100vh;padding:2rem}
-        .container{max-width:1200px;margin:0 auto}
-        h1{font-size:2.5rem;margin-bottom:0.5rem;text-align:center}
-        h1 span{color:var(--p)}
-        .subtitle{text-align:center;color:var(--t2);margin-bottom:2rem;font-size:1.1rem}
-        .stats{display:flex;justify-content:center;gap:3rem;margin-bottom:3rem;flex-wrap:wrap}
-        .stat{text-align:center}
-        .stat .v{font-size:2.5rem;font-weight:700;color:var(--p)}
-        .stat .l{font-size:0.9rem;color:var(--t2)}
-        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;margin-bottom:3rem}
-        .card{background:var(--b2);border:1px solid var(--bd);border-radius:12px;padding:1.5rem;transition:all 0.2s}
-        .card:hover{transform:translateY(-4px);border-color:var(--p);box-shadow:0 10px 40px rgba(16,185,129,0.1)}
-        .card .icon{font-size:2rem;margin-bottom:1rem}
-        .card h3{font-size:1.2rem;margin-bottom:0.5rem}
-        .card .price{font-size:1.5rem;font-weight:700;color:var(--p);margin-bottom:0.5rem}
-        .card .time{font-size:0.85rem;color:var(--t2);margin-bottom:1rem}
-        .card .desc{font-size:0.9rem;color:var(--t2);margin-bottom:1rem;line-height:1.5}
-        .card .tags{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem}
-        .card .tag{font-size:0.75rem;padding:0.3rem 0.6rem;background:var(--b3);border-radius:100px}
-        .card .btn{width:100%;padding:0.8rem;background:var(--p);color:#000;border:0;border-radius:8px;font-weight:600;cursor:pointer;transition:all 0.2s}
-        .card .btn:hover{background:var(--p2)}
-        .card.built{border-color:var(--p)}
-        .card .status{font-size:0.75rem;color:var(--p);margin-bottom:0.5rem}
-        .cta{text-align:center;padding:3rem;background:var(--b2);border-radius:16px}
-        .cta h2{font-size:1.8rem;margin-bottom:1rem}
-        .cta p{color:var(--t2);margin-bottom:2rem;font-size:1.1rem}
-        .cta .price{font-size:3rem;font-weight:700;color:var(--p)}
-        .cta .note{font-size:0.9rem;color:var(--t2);margin-top:1rem}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);min-height:100vh}
+        .app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+        .sb{background:var(--b2);border-right:1px solid var(--bd);padding:1rem}
+        .logo{display:flex;align-items:center;gap:0.5rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--bd)}
+        .li{width:36px;height:36px;background:linear-gradient(135deg,var(--p),var(--p2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .lh{font-size:1.2rem;font-weight:700;color:var(--p)}
+        .nav{display:flex;flex-direction:column;gap:0.3rem}
+        .ni{display:flex;align-items:center;gap:0.5rem;padding:0.6rem 0.8rem;border-radius:8px;color:var(--t2);cursor:pointer;font-size:0.9rem}
+        .ni:hover{background:rgba(255,255,255,0.05);color:var(--t)}
+        .ni.active{background:rgba(16,185,129,0.15);color:var(--p)}
+        .mn{padding:1.5rem;overflow-y:auto}
+        .h{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;gap:1rem;flex-wrap:wrap}
+        .h2{font-size:1.5rem}
+        .btn{padding:0.5rem 1rem;border-radius:8px;cursor:pointer;font-weight:500;font-size:0.85rem;border:0}
+        .bp{background:var(--p);color:#000}
+        .bp:hover{background:var(--p2)}
+        .bs{background:var(--b3);color:var(--t)}
+        .c{background:var(--b2);border:1px solid var(--bd);border-radius:12px;padding:1.2rem;margin-bottom:1rem}
+        .ct{font-size:1rem;font-weight:600;margin-bottom:1rem}
+        .st{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem}
+        .sc{background:var(--b2);border:1px solid var(--bd);border-radius:10px;padding:1rem;text-align:center}
+        .sc .v{font-size:1.8rem;font-weight:700;color:var(--p)}
+        .sc .l{font-size:0.7rem;color:var(--t2);text-transform:uppercase}
+        .s{display:none}
+        .s.active{display:block}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
+        .card{background:var(--b3);border-radius:10px;padding:1.2rem;cursor:pointer;transition:all 0.2s}
+        .card:hover{transform:translateY(-2px);border:1px solid var(--p)}
+        .card .price{font-size:1.3rem;font-weight:700;color:var(--p);margin:0.5rem 0}
+        .card .time{font-size:0.8rem;color:var(--t2)}
+        .card .desc{font-size:0.85rem;color:var(--t2);margin:0.5rem 0}
+        .card.built{border:1px solid var(--p)}
+        .card .status{font-size:0.7rem;color:var(--p);margin-bottom:0.3rem}
+        .form-group{margin-bottom:1rem}
+        .form-group label{display:block;font-size:0.8rem;color:var(--t2);margin-bottom:0.3rem}
+        .form-group input,.form-group select,.form-group textarea{width:100%;padding:0.6rem;background:var(--bg);border:1px solid var(--bd);border-radius:6px;color:var(--t);font-size:0.9rem}
+        .mo{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;z-index:100}
+        .m{background:var(--b2);border:1px solid var(--bd);border-radius:12px;width:90%;max-width:500px;max-height:80vh;overflow-y:auto}
+        .mh{display:flex;justify-content:space-between;align-items:center;padding:1rem;border-bottom:1px solid var(--bd)}
+        .mc{padding:1rem}
+        .mf{display:flex;justify-content:flex-end;gap:0.5rem;padding:1rem;border-top:1px solid var(--bd)}
+        .client-list{background:var(--b3);padding:1rem;border-radius:8px;margin-bottom:1rem}
+        .client-list .c-item{display:flex;justify-content:space-between;align-items:center;padding:0.5rem;border-bottom:1px solid var(--bd)}
+        .client-list .c-item:last-child{border:0}
+        .badge{font-size:0.7rem;padding:0.2rem 0.5rem;border-radius:100px;margin-left:0.5rem}
+        .b-active{background:rgba(16,185,129,0.2);color:var(--s)}
+        .b-demo{background:rgba(245,158,11,0.2);color:var(--o)}
+        @media(max-width:900px){.st{grid-template-columns:repeat(2,1fr)}}
     </style>
 </head>
 <body>
-<div class="container">
-    <h1>Local<span>Flows</span></h1>
-    <p class="subtitle">10 Business Automations That Print Money</p>
-    
-    <div class="stats">
-        <div class="stat"><div class="v">$17,500</div><div class="l">Avg Package</div></div>
-        <div class="stat"><div class="v">5.4min</div><div class="l">Build Time</div></div>
-        <div class="stat"><div class="v">70%</div><div class="l">Close Rate</div></div>
-    </div>
-
-    <div class="grid">
-        <div class="card built">
-            <div class="status">✅ BUILT</div>
-            <div class="icon">📱</div>
-            <h3>Missed Call Text-Back</h3>
-            <div class="price">$800-1,500</div>
-            <div class="time">⏱️ 3 min build</div>
-            <p class="desc">When a customer calls and misses, auto-reply with personalized text within 60 seconds.</p>
-            <div class="tags"><span class="tag">Twilio</span><span class="tag">SMS</span></div>
-            <button class="btn">Configure</button>
-        </div>
-
-        <div class="card built">
-            <div class="status">✅ BUILT</div>
-            <div class="icon">⭐</div>
-            <h3>Review Request Automation</h3>
-            <div class="price">$500-1,200</div>
-            <div class="time">⏱️ 4 min build</div>
-            <p class="desc">Triple Google reviews in first month. Auto-request after positive interaction.</p>
-            <div class="tags"><span class="tag">Google</span><span class="tag">Reviews</span></div>
-            <button class="btn">Configure</button>
-        </div>
-
-        <div class="card built">
-            <div class="status">✅ BUILT</div>
-            <div class="icon">📅</div>
-            <h3>No-Show Recovery</h3>
-            <div class="price">$1,200-2,500</div>
-            <div class="time">⏱️ 5 min build</div>
-            <p class="desc">Recovers 30-40% of lost revenue. Auto-message + rebook offer when client misses.</p>
-            <div class="tags"><span class="tag">Calendar</span><span class="tag">SMS</span></div>
-            <button class="btn">Configure</button>
-        </div>
-
-        <div class="card">
-            <div class="icon">🤖</div>
-            <h3>AI Receptionist</h3>
-            <div class="price">$2,000-4,000</div>
-            <div class="time">⏱️ 8 min build</div>
-            <p class="desc">24/7 coverage. Answers common questions, schedules appointments, routes calls.</p>
-            <div class="tags"><span class="tag">Voice</span><span class="tag">AI</span></div>
-            <button class="btn">Configure</button>
-        </div>
-
-        <div class="card built">
-            <div class="status">✅ BUILT</div>
-            <div class="icon">💰</div>
-            <h3>Instant Quote Generator</h3>
-            <div class="price">$1,500-3,000</div>
-            <div class="time">⏱️ 7 min build</div>
-            <p class="desc">Response time drops from 2 days to 2 minutes. Auto-generate quotes from forms.</p>
-            <div class="tags"><span class="tag">Forms</span><span class="tag">PDF</span></div>
-            <button class="btn">Configure</button>
-        </div>
-
-        <div class="card built">
-            <div class="status">✅ BUILT</div>
-            <div class="icon">🎯</div>
-            <h3>Lead Scoring + Routing</h3>
-            <div class="price">$1,500-3,000</div>
-            <div class="time">⏱️ 6 min build</div>
-            <p class="desc">Hot leads hit your phone. Cold leads get nurtured automatically.</p>
-            <div class="tags"><span class="tag">Scoring</span><span class="tag">Routing</span></div>
-            <button class="btn">Configure</button>
-        </div>
-
-        <div class="card">
-            <div class="icon">📋</div>
-            <h3>Client Onboarding</h3>
-            <div class="price">$1,800-3,500</div>
-            <div class="time">⏱️ 9 min build</div>
-            <p class="desc">Forms, document collection, payments - one workflow handles all.</p>
-            <div class="tags"><span class="tag">Forms</span><span class="tag">Stripe</span></div>
-            <button class="btn">Configure</button>
-        </div>
-
-        <div class="card">
-            <div class="icon">💳</div>
-            <h3>Invoice Follow-Up</h3>
-            <div class="price">$1,000-2,000</div>
-            <div class="time">⏱️ 4 min build</div>
-            <p class="desc">Late payments drop 60% without a single awkward phone call.</p>
-            <div class="tags"><span class="tag">Stripe</span><span class="tag">SMS</span></div>
-            <button class="btn">Configure</button>
-        </div>
-
-        <div class="card">
-            <div class="icon">🏆</div>
-            <h3>Social Proof Collector</h3>
-            <div class="price">$600-1,200</div>
-            <div class="time">⏱️ 3 min build</div>
-            <p class="desc">Auto-requests testimonials and publishes to Google + socials.</p>
-            <div class="tags"><span class="tag">Reviews</span><span class="tag">Social</span></div>
-            <button class="btn">Configure</button>
-        </div>
-
-        <div class="card built">
-            <div class="status">✅ BUILT</div>
-            <div class="icon">📊</div>
-            <h3>Weekly Owner Dashboard</h3>
-            <div class="price">$1,200-2,500</div>
-            <div class="time">⏱️ 5 min build</div>
-            <p class="desc">Revenue, reviews, leads, appointments - one email every Monday morning.</p>
-            <div class="tags"><span class="tag">Email</span><span class="tag">Analytics</span></div>
-            <button class="btn">Configure</button>
-        </div>
-    </div>
-
-    <div class="cta">
-        <h2>Ready to Start Building?</h2>
-        <p>These workflows are self-healing via MCP. No debugging. No 11pm maintenance calls.</p>
-        <div class="price">$1,750</div>
-        <p>Average automation price</p>
-        <button class="btn" style="padding:1rem 3rem;font-size:1.1rem;margin-top:1rem">Start Building →</button>
-        <p class="note">5.4 min average build time • 70% close rate when demoing live</p>
-    </div>
+<div class="app">
+<div class="sb">
+<div class="logo"><div class="li">⚡</div><div class="lh">LocalFlows</div></div>
+<div class="nav">
+<div class="ni active" id="nav-dashboard" onclick="show('dashboard')">📊 Dashboard</div>
+<div class="ni" id="nav-workflows" onclick="show('workflows')">🔧 Workflows</div>
+<div class="ni" id="nav-clients" onclick="show('clients')">👥 Clients</div>
+<div class="ni" id="nav-settings" onclick="show('settings')">⚙️ Settings</div>
+</div></div>
+<div class="mn">
+<!-- Dashboard -->
+<div id="dashboard" class="s active">
+<div class="h"><h2 class="h2">Command Center</h2></div>
+<div class="st">
+<div class="sc"><div class="v" id="total-revenue">$0</div><div class="l">Revenue</div></div>
+<div class="sc"><div class="v" id="active-clients">0</div><div class="l">Active Clients</div></div>
+<div class="sc"><div class="v" id="workflows-built">6</div><div class="l">Workflows</div></div>
+<div class="sc"><div class="v" id="pending">0</div><div class="l">Pending</div></div>
 </div>
+<div class="grid">
+<div class="c"><div class="ct">Recent Clients</div><div id="recent-clients"></div></div>
+<div class="c"><div class="ct">Revenue This Month</div><div id="revenue-chart"></div></div>
+</div>
+</div>
+<!-- Workflows -->
+<div id="workflows" class="s">
+<div class="h"><h2 class="h2">Workflow Library</h2><button class="btn bp" onclick="openModal('workflow')">+ Add Custom</button></div>
+<div class="grid" id="workflow-grid"></div>
+</div>
+<!-- Clients -->
+<div id="clients" class="s">
+<div class="h"><h2 class="h2">Clients</h2><button class="btn bp" onclick="openModal('client')">+ Add Client</button></div>
+<div class="client-list" id="client-list"></div>
+</div>
+<!-- Settings -->
+<div id="settings" class="s">
+<div class="h"><h2 class="h2">Settings</h2></div>
+<div class="c"><div class="ct">API Keys</div>
+<div class="form-group"><label>Twilio SID</label><input id="twilio-sid" placeholder="AC..."></div>
+<div class="form-group"><label>Twilio Token</label><input type="password" id="twilio-token"></div>
+<div class="form-group"><label>Twilio Phone</label><input id="twilio-phone" placeholder="+1..."></div>
+<div class="form-group"><label>OpenAI Key</label><input id="openai-key" placeholder="sk-..."></div>
+<button class="btn bp" onclick="saveSettings()">Save</button></div>
+</div>
+</div>
+</div>
+<div id="modal" class="mo">
+<div class="m">
+<div class="mh"><h3 id="mt">Title</h3><button class="btn bs" onclick="closeModal()">×</button></div>
+<div class="mc" id="mb"></div>
+<div class="mf"><button class="btn bs" onclick="closeModal()">Cancel</button><button class="btn bp" onclick="saveModal()">Save</button></div>
+</div>
+</div>
+<script>
+var workflows = [
+{id:1,name:'Missed Call Text-Back',price:1250,time:3,desc:'Auto-reply within 60 seconds',tags:['Twilio','SMS'],built:true},
+{id:2,name:'Review Automation',price:850,time:4,desc:'Triple Google reviews',tags:['Google','Reviews'],built:true},
+{id:3,name:'No-Show Recovery',price:1850,time:5,desc:'Recover 30-40% lost revenue',tags:['Calendar','SMS'],built:true},
+{id:4,name:'AI Receptionist',price:3000,time:8,desc:'24/7 coverage, voice + scheduling',tags:['Voice','AI'],built:false},
+{id:5,name:'Quote Generator',price:2250,time:7,desc:'Response in 2 minutes, not 2 days',tags:['Forms','PDF'],built:true},
+{id:6,name:'Lead Scoring',price:2250,time:6,desc:'Hot leads to phone, cold nurtured',tags:['Scoring','Routing'],built:true},
+{id:7,name:'Client Onboarding',price:2650,time:9,desc:'Forms, docs, payments - one flow',tags:['Forms','Stripe'],built:false},
+{id:8,name:'Invoice Follow-Up',price:1500,time:4,desc:'60% less late payments',tags:['Stripe','SMS'],built:false},
+{id:9,name:'Social Proof',price:900,time:3,desc:'Auto testimonials to Google/socials',tags:['Reviews','Social'],built:false},
+{id:10,name:'Weekly Dashboard',price:1850,time:5,desc:'Revenue, reviews, leads - Monday email',tags:['Email','Analytics'],built:true}
+];
+
+var clients = [
+{id:1,name:'Mike\'s Plumbing',email:'mike@plumbing.com',workflows:[1,5,6],revenue:5500,status:'active'},
+{id:2,name:'Sarah\'s Salon',email:'sarah@salon.com',workflows:[1,2,9],revenue:2400,status:'active'},
+{id:3,name:'Elite HVAC',email:'elite@hvac.com',workflows:[1,3,5,6,10],revenue:10200,status:'active'},
+{id:4,name:'Riverside Auto',email:'riverauto@gmail.com',workflows:[5],revenue:2250,status:'demo'}
+];
+
+var settings = {};
+var currentModal = '';
+
+function show(page){
+    document.querySelectorAll('.s').forEach(e=>e.classList.remove('active'));
+    document.querySelectorAll('.ni').forEach(e=>e.classList.remove('active'));
+    document.getElementById(page).classList.add('active');
+    document.getElementById('nav-'+page).classList.add('active');
+    render();
+}
+
+function render(){
+    var totalRev = clients.reduce((s,c)=>s+c.revenue,0);
+    document.getElementById('total-revenue').textContent = '$'+(totalRev/1000).toFixed(1)+'K';
+    document.getElementById('active-clients').textContent = clients.filter(c=>c.status==='active').length;
+    document.getElementById('pending').textContent = clients.filter(c=>c.status==='demo').length;
+    
+    document.getElementById('recent-clients').innerHTML = clients.slice(0,3).map(c=>{
+        var workflowNames = c.workflows.map(wid=>workflows.find(w=>w.id===wid)?.name).join(', ');
+        return '<div class="c-item"><div><div style="font-weight:500">'+c.name+'</div><div style="font-size:0.8rem;color:var(--t2)">'+workflowNames+'</div></div><span class="badge '+(c.status==='active'?'b-active':'b-demo')+'">'+c.status+'</span></div>';
+    }).join('');
+    
+    document.getElementById('workflow-grid').innerHTML = workflows.map(w=>{
+        return '<div class="card '+(w.built?'built':'')+'" onclick="configure('+w.id+')"><div class="status">'+(w.built?'✅ Ready':'🔲 Coming')+'</div><h3>'+w.name+'</h3><div class="price">$'+w.price+'</div><div class="time">⏱️ '+w.time+' min</div><p class="desc">'+w.desc+'</p><div style="display:flex;gap:0.3rem;flex-wrap:wrap">'+(w.tags.map(t=>'<span style="font-size:0.7rem;background:var(--b2);padding:0.2rem 0.4rem;border-radius:4px">'+t+'</span>').join(''))+'</div></div>';
+    }).join('');
+    
+    document.getElementById('client-list').innerHTML = clients.map(c=>{
+        var workflowNames = c.workflows.map(wid=>workflows.find(w=>w.id===wid)?.name).join(', ');
+        return '<div class="c-item"><div><div style="font-weight:500">'+c.name+'</div><div style="font-size:0.8rem;color:var(--t2)">'+c.email+'</div><div style="font-size:0.75rem;color:var(--t2)">'+workflowNames+'</div></div><div><div style="font-weight:600;color:var(--p)">$'+c.revenue.toLocaleString()+'</div><span class="badge '+(c.status==='active'?'b-active':'b-demo')+'">'+c.status+'</span></div></div>';
+    }).join('');
+}
+
+function configure(id){
+    var w = workflows.find(w=>w.id===id);
+    alert('Configure: '+w.name+'\n\nPrice: $'+w.price+'\n\n(This would open the workflow configuration in production)');
+}
+
+function openModal(type){
+    currentModal = type;
+    if(type==='workflow'){
+        document.getElementById('mt').textContent = 'Add Workflow';
+        document.getElementById('mb').innerHTML = '<div class="form-group"><label>Name</label><input id="wf-name"></div><div class="form-group"><label>Price</label><input type="number" id="wf-price"></div><div class="form-group"><label>Build Time (min)</label><input type="number" id="wf-time"></div><div class="form-group"><label>Description</label><textarea id="wf-desc" rows="3"></textarea></div>';
+    }else if(type==='client'){
+        document.getElementById('mt').textContent = 'Add Client';
+        document.getElementById('mb').innerHTML = '<div class="form-group"><label>Business Name</label><input id="cl-name"></div><div class="form-group"><label>Email</label><input id="cl-email"></div><div class="form-group"><label>Status</label><select id="cl-status"><option value="active">Active</option><option value="demo">Demo</option></select></div><div class="form-group"><label>Revenue</label><input type="number" id="cl-revenue"></div>';
+    }
+    document.getElementById('modal').style.display = 'flex';
+}
+
+function closeModal(){
+    document.getElementById('modal').style.display = 'none';
+}
+
+function saveModal(){
+    if(currentModal==='client'){
+        var wfIds = [];
+        clients.push({
+            id:Date.now(),
+            name:document.getElementById('cl-name').value,
+            email:document.getElementById('cl-email').value,
+            status:document.getElementById('cl-status').value,
+            revenue:parseInt(document.getElementById('cl-revenue').value)||0,
+            workflows:[]
+        });
+    }
+    closeModal();
+    render();
+    alert('Saved!');
+}
+
+function saveSettings(){
+    settings.twilio = {sid:document.getElementById('twilio-sid').value,token:document.getElementById('twilio-token').value,phone:document.getElementById('twilio-phone').value};
+    settings.openai = document.getElementById('openai-key').value;
+    localStorage.setItem('localflows',JSON.stringify(settings));
+    alert('Settings saved!');
+}
+
+render();
+</script>
 </body>
 </html>
